@@ -4,6 +4,7 @@ from nltk.tokenize import word_tokenize
 import re
 import string
 import nltk
+
 nltk.download('punkt')
 
 
@@ -31,8 +32,8 @@ nltk.download('punkt')
 
 def tokenize_text(text):
     # Tokenize the text into words
-    t_tokens = word_tokenize(text)
-    return t_tokens
+    tokens = word_tokenize(text)
+    return tokens
 
 
 # Example usage
@@ -46,3 +47,7 @@ def normalize_and_tokenize(text):
     nat_normalized_text = normalize_text(text)
     nat_tokens = tokenize_text(nat_normalized_text)
     return nat_tokens
+
+
+def read_input_data():
+    return open("dataset/dev/dev.data.txt", "r")
