@@ -1,14 +1,16 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-
-const LittleApp = () => {
+function MyButton() {
   return (
-    <div>
-      <MaterialUI.Button variant="contained" color="primary">
-        Hello World
-      </MaterialUI.Button>
-    </div>
-  )
+    <button>
+      I'm a button
+    </button>
+  );
 }
 
-ReactDOM.render(<LittleApp />, document.getElementById("littleApp"));
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <MyButton />
+    </div>
+  );
+}
