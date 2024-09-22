@@ -7,7 +7,10 @@ gemma2-2b-it-t modell, méret/minőség arányban egész jó: https://huggingfac
 Ugyanitt vannak kvantált (a pontosság rovására kisebb méretűvé tett) variánsai is ennek a modellnek: https://huggingface.co/models?other=base_model:quantized:google/gemma-2-2b-it
 Olvass majd utána a kvantálásnak is: https://huggingface.co/docs/optimum/en/concept_guides/quantization illetve https://huggingface.co/docs/hub/en/gguf
 
-https://ollama.com/
-https://github.com/vllm-project/vllm
-https://github.com/huggingface/transformers/
-https://github.com/ggerganov/llama.cpp
+A cél, hogy az alkalmazásban a modelleknek alábbi formájú kérdéseket lehessen feltenni:
+A és B mondatban ugyanazt jelenti-e az X szó?
+Lehetséges platformok erre:
+# https://ollama.com/
+# https://github.com/vllm-project/vllm
+# https://github.com/huggingface/transformers/
+# https://github.com/ggerganov/llama.cpp
