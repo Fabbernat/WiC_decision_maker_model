@@ -18,3 +18,7 @@ Lehetséges platformok erre:
 
 LLM-k benchmarkjainak összehasonlítása:
 # https://llmarena.ai/
+
+TODO: 
+- Find the website where you can compare the output of LLM's!
+- Check Large Language Model (LLM) API Playground by Retool
