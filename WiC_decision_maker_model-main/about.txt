@@ -1,0 +1,1 @@
+Az alkalmazás megvizsgálja, hogy a WiC (word in context) feladatot különböző nyelvi modellek mennyire jól tudják megoldani, illetve, hogy mennyire érzékenyek esetlegesen arra, hogyha a 2 példamondatot, amire vonatkozóan döntést kell hozzanak, azt fordított sorrendben adjuk be nekik. Megvizsgált modellek terv szerint gemma2-2b, GPT 3.5 és 4, Gemini. 

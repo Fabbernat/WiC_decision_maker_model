@@ -1,0 +1,14 @@
+{
+  "name": "flask_nlp_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "frontend/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "react": "^17.0.2"
+  }
+}
