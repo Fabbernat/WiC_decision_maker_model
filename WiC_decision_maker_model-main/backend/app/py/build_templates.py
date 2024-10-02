@@ -17,7 +17,7 @@ def read_dataset():
 
 def chat_template(word, s1, s2):
     return (f'Does the word "{word}" mean the same in sentence "{s1}" as in sentence"'
-            f'{s2}"?')
+            f'{s2}"?\n')
 
 
 def template_builder(endindex):  # you can adjust how many lines you want to work with
@@ -34,7 +34,7 @@ def template_builder(endindex):  # you can adjust how many lines you want to wor
         question = chat_template(target_word, example_1, example_2)
         string_builder.append(question)
         i += 1
-        if i > endindex:
+        if i >= endindex:
             break
 
     return ''.join(string_builder)
