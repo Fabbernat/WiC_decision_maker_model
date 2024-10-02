@@ -13,13 +13,6 @@ def index():
     return render_template('index.html')
 
 
-def count_word_occurrences(sentences, word):
-    count = 0
-    for sentence in sentences:
-        count += sentence.split().count(word)
-    return count
-
-
 if __name__ == '__main__':
 
     # Az adatfájl betöltése
@@ -27,12 +20,8 @@ if __name__ == '__main__':
     # Open the file in write mode
     with open('output/out.txt', 'w', encoding='utf-8') as f:
         for element in templates:
-            if element == ' ':
-                print(' ', file=f)
-            else:
-                print(element, file=f, end="")
-    # print(chat_template("bed", "There's a lot of trash on the bed of the river",
-    #                     "I keep a glass of water next to my bed when I sleep"))
+            print(element, file=f, end="")
+
     app.run(host="127.0.0.1", port=5000, debug=True)
 
 
