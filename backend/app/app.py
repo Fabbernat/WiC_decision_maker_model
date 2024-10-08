@@ -23,7 +23,6 @@ if __name__ == '__main__':
     output_dir = 'output'
     os.makedirs(output_dir, exist_ok=True)
 
-
     # Open the file in write mode
     with open('output/out.txt', 'w', encoding='utf-8') as f:
         print('Answer with a single "YES" or "NO"!', file=f)
@@ -34,7 +33,7 @@ if __name__ == '__main__':
     # Open the file in write mode
     with open('output/out_reversed.txt', 'w', encoding='utf-8') as reversed_f:
         print('Answer with a single "YES" or "NO"!', file=reversed_f)
-        print(templates, file=reversed_f, end="")
+        print(reversed_templates, file=reversed_f, end="")
     reversed_f.close()
 
     app.run(host="127.0.0.1", port=5000, debug=True)
