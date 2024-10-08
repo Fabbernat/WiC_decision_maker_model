@@ -2,6 +2,7 @@ import data
 import pandas as pd
 from flask import Flask, render_template
 from py import build_templates
+import os
 
 # import nlp_utils
 
@@ -17,10 +18,24 @@ if __name__ == '__main__':
 
     # Az adatfájl betöltése
     templates = build_templates.template_builder(10)
+
+    # Ensure output directory exists
+    output_dir = 'output'
+    os.makedirs(output_dir, exist_ok=True)
+
+
     # Open the file in write mode
     with open('output/out.txt', 'w', encoding='utf-8') as f:
         print('Answer with a single "YES" or "NO"!', file=f)
         print(templates, file=f, end="")
+    f.close()  # force close the file to speed up the app
+
+    reversed_templates = build_templates.template_builder(10, reverse=True)
+    # Open the file in write mode
+    with open('output/out_reversed.txt', 'w', encoding='utf-8') as reversed_f:
+        print('Answer with a single "YES" or "NO"!', file=reversed_f)
+        print(templates, file=reversed_f, end="")
+    reversed_f.close()
 
     app.run(host="127.0.0.1", port=5000, debug=True)
 
