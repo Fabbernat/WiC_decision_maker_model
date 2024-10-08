@@ -14,3 +14,11 @@ Lehetséges platformok erre:
 # https://github.com/vllm-project/vllm
 # https://github.com/huggingface/transformers/
 # https://github.com/ggerganov/llama.cpp
+
+
+LLM-k benchmarkjainak összehasonlítása:
+# https://llmarena.ai/
+
+TODO: 
+- Find the website where you can compare the output of LLM's!
+- Check Large Language Model (LLM) API Playground by Retool
