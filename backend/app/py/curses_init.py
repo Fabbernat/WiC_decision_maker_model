@@ -3,7 +3,7 @@ from argparse import ArgumentError
 
 
 # open console app:
-def curses_init(*args):
+def my_curses_init(*args):
     needed_arguments = 2
     stdscr = curses.initscr()
     stdscr.clear()

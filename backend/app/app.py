@@ -3,7 +3,7 @@ import curses
 
 from flask import Flask, render_template
 from curses import wrapper
-from py import build_templates, curses_init
+from py import build_templates, my_curses_init
 
 # import nlp_utils
 
@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
 
 
-    wrapper(curses_init)
+    my_curses_init(templates, reversed_templates)
 
     app.run(host="127.0.0.1", port=5000, debug=True)
 
