@@ -1,6 +1,12 @@
 import curses
 from argparse import ArgumentError
 
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return file.readlines()
+    except FileNotFoundError:
+        return ["File not found. Please provide a valid file path."]
 
 # open console app:
 def my_curses_init(*args):

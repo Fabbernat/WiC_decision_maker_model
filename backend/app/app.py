@@ -1,8 +1,11 @@
 import os
 import curses
+import sys
 
 from flask import Flask, render_template
 from curses import wrapper
+
+from backend.app.py.my_curses_init import my_curses_init
 from py import build_templates, my_curses_init
 
 # import nlp_utils
@@ -13,6 +16,34 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+def my_curses_app(file_content):
+
+    stdscr = curses.initscr()
+    curses.curs_set(0)  # Rejtse el a kurzort
+    stdscr.clear()
+    my_curses_init.my_curses_init(templates, reversed_templates)
+    # Fájl tartalmának megjelenítése a konzolon
+    for idx, line in enumerate(file_content):
+        stdscr.addstr(idx, 0, line.strip())
+
+    # Felhasználói input figyelése
+    while True:
+        stdscr.addstr(len(file_content) + 1, 0, "Type 'stop' to exit: ")
+        stdscr.refresh()
+
+        # Felhasználói input beolvasása
+        user_input = stdscr.getstr(len(file_content) + 2, 0, 20).decode("utf-8")
+
+        # Kilépés a "stop" beírására
+        if user_input.lower() == 'stop':
+            break
+
+    stdscr.clear()
+    stdscr.addstr(0, 0, "Exiting...")
+    stdscr.refresh()
+    curses.napms(1000)
 
 
 if __name__ == '__main__':
@@ -39,7 +70,13 @@ if __name__ == '__main__':
 
 
 
-    my_curses_init(templates, reversed_templates)
+    # screen handling
+    if len(sys.argv) > 0:
+        file_path = sys.argv[0]
+
+        # Fájl tartalmának beolvasása
+        file_content = my_curses_init.read_file(file_path)
+        curses.wrapper(my_curses_app, file_content)
 
     app.run(host="127.0.0.1", port=5000, debug=True)
 
