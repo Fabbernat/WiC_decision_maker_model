@@ -1,8 +1,9 @@
-import data
-import pandas as pd
-from flask import Flask, render_template
-from py import build_templates
 import os
+import curses
+
+from flask import Flask, render_template
+from curses import wrapper
+from py import build_templates, curses_init
 
 # import nlp_utils
 
@@ -35,6 +36,10 @@ if __name__ == '__main__':
         print('Answer with a single "YES" or "NO"!', file=reversed_f)
         print(reversed_templates, file=reversed_f, end="")
     reversed_f.close()
+
+
+
+    wrapper(curses_init)
 
     app.run(host="127.0.0.1", port=5000, debug=True)
 
