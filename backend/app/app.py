@@ -1,6 +1,10 @@
 import os
 import curses
 import sys
+import threading
+
+def run_flask():
+    app.run(host="127.0.0.1", port=5000, debug=True)
 
 from flask import Flask, render_template
 from curses import wrapper
@@ -45,9 +49,7 @@ def my_curses_app(file_content):
     stdscr.refresh()
     curses.napms(1000)
 
-
-if __name__ == '__main__':
-
+def main():
     # Az adatfájl betöltése
     templates = build_templates.template_builder(10)
 
@@ -56,19 +58,17 @@ if __name__ == '__main__':
     os.makedirs(output_dir, exist_ok=True)
 
     # Open the file in write mode
-    with open('output/out.txt', 'w', encoding='utf-8') as f:
+    with open(f'{output_dir}/out.txt', 'w', encoding='utf-8') as f:
         print('Answer with a single "YES" or "NO"!', file=f)
         print(templates, file=f, end="")
     f.close()  # force close the file to speed up the app
 
     reversed_templates = build_templates.template_builder(10, reverse=True)
     # Open the file in write mode
-    with open('output/out_reversed.txt', 'w', encoding='utf-8') as reversed_f:
+    with open(f'{output_dir}/out_reversed.txt', 'w', encoding='utf-8') as reversed_f:
         print('Answer with a single "YES" or "NO"!', file=reversed_f)
         print(reversed_templates, file=reversed_f, end="")
     reversed_f.close()
-
-
 
     # screen handling
     if len(sys.argv) > 0:
@@ -78,8 +78,15 @@ if __name__ == '__main__':
         file_content = my_curses_init.read_file(file_path)
         curses.wrapper(my_curses_app, file_content)
 
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    run_flask()
 
+if __name__ == '__main__':
+    # Start Flask server in a separate thread
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.start()
+
+    # Continue with curses UI or other tasks here
+    main()
 
 def py():
     return None
