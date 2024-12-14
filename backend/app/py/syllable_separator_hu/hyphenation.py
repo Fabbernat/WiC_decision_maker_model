@@ -2,12 +2,27 @@
 # Neptun: URX5VP
 # h: h259147
 
-def elvalasztas(word):
+def elvalasztas_with_meggy(word):
+    # Speciális kezelés a "meggy" esetére
+    meggy_related = ["meggyízű", "meggylé", "meggymag", "meggybefőtt"]  # Gyümölccsel kapcsolatos szavak
+    if word in meggy_related:
+        return word.replace("meggy", "meggy-")  # Speciális elválasztás
+
+    # Ha a szó "meg" előtaggal kezdődik, de nem "meggy", akkor válasszuk el
+    if word.startswith("meg") and not word.startswith("meggy"):
+        prefix = "meg-"
+        return prefix + hyphenate(word[len(prefix):])  # Folytatjuk az elválasztást a maradék szóval
+
+    # Egyéb esetekben a normál elválasztást használjuk
+    return hyphenate(word)
+
+def hyphenate(word):
     if word in dictionary.keys():
         return dictionary[word]
+
     ### strings
-    vowels_simple = "aeiou"
-    vowels_hu = "aáeéiíoóuúöőüű"
+    simple_vowels = "aeiou"
+    hu_vowels = "aáeéiíoóuúöőüű"
     consonants = "bcdfghjklmnpqrstvwxyz"
     current_syllable = ""
 
@@ -26,7 +41,7 @@ def elvalasztas(word):
     }
 
     ### lists
-    syllables_retstr = []
+    syllables_list = []
     # config: egy
     known_prefixes = [
         "meg", "egy",
@@ -56,13 +71,23 @@ def elvalasztas(word):
     ]
 
     ### ints
-    i = 0
+    i = 0 # i egy pointer az aktualis elemre
 
-    for prefix in known_prefixes:
-        if word.startswith(prefix):
-            syllables_retstr.append(prefix)
-            i = len(prefix)  # Move index after the prefix
-            break
+    # Külön kezeljük a "meg" és a "meggy" előtagokat
+    if word.startswith("meggy"):
+        syllables_list.append("meggy")
+        i = 5  # Move index after the "meggy" prefix
+    elif word.startswith("meg"):
+        syllables_list.append("meg")
+        i = 3  # Move index after the "meg" prefix
+
+    # Ha a szó nem "meg"-gel vagy "meggy"-vel kezdődik, akkor a többi előtagot ellenőrizzük
+    if i == 0:
+        for prefix in known_prefixes:
+            if word.startswith(prefix):
+                syllables_list.append(prefix)
+                i = len(prefix)  # Move index after the prefix
+                break
 
     # Iterate through the word to form syllables
     while i < len(word):
@@ -70,11 +95,11 @@ def elvalasztas(word):
         current_syllable += char
 
         # Check for syllable breaks: vowel followed by consonant or end of word
-        if char in vowels_hu:
+        if char in hu_vowels:
             # Handle consonant clusters between vowels
             j = i + 1
             consonant_cluster = ""
-            while j < len(word) and word[j] not in vowels_hu:
+            while j < len(word) and word[j] not in hu_vowels:
                 consonant_cluster += word[j]
                 j += 1
 
@@ -95,18 +120,18 @@ def elvalasztas(word):
 
                 # Append the left side of the cluster to the current syllable
                 current_syllable += consonant_cluster[:split_point]
-                syllables_retstr.append(current_syllable)
+                syllables_list.append(current_syllable)
                 current_syllable = consonant_cluster[split_point:]
                 i = j - 1  # Adjust index to just before next vowel
             else:
-                syllables_retstr.append(current_syllable)
+                syllables_list.append(current_syllable)
                 current_syllable = ""
         elif i == len(word) - 1 and current_syllable:
             # Handle trailing consonants by appending them to the last syllable
-            if syllables_retstr:
-                syllables_retstr[-1] += current_syllable
+            if syllables_list:
+                syllables_list[-1] += current_syllable
             else:
-                syllables_retstr.append(current_syllable)
+                syllables_list.append(current_syllable)
             current_syllable = ""
         i += 1
 
@@ -114,20 +139,21 @@ def elvalasztas(word):
     if current_syllable:  # Append remaining part as a syllable
         if current_syllable[-1] in consonants:
             # Append remaining consonants to the last syllable
-            if syllables_retstr and all(char in consonants for char in current_syllable):
-                syllables_retstr[-1] += current_syllable
+            if syllables_list and all(char in consonants for char in current_syllable):
+                syllables_list[-1] += current_syllable
         else:
-            syllables_retstr.append(current_syllable)
+            syllables_list.append(current_syllable)
 
     # Check for suffix attachment if word ends with a known suffix
     for suffix in known_suffixes:
         if word.endswith(suffix):
-            syllables_retstr[-1] = suffix
+            if len(syllables_list) > 1:  # Only attach if there are other syllables
+                syllables_list[-1] = suffix
             break
 
     # Check for missing characters in final syllables
-    
-    result = "-".join(syllables_retstr)
+
+    result = "-".join(syllables_list)
 
     # Clean up result to replace any occurrences of '--' with '-'
     result = result.replace('--', '-')
@@ -136,8 +162,6 @@ def elvalasztas(word):
     result = result.strip('-')  # remove any leading/trailing hyphens
 
     return result
-
-
 dictionary = {
     "asztal": "asz-tal",
     "katona": "ka-to-na",
@@ -261,12 +285,27 @@ dictionary = {
     "összes": "ösz-szes",
     "összeg": "ösz-szeg",
     "prompt": "prompt",
+    "meggyőző": "meg-győ-ző",
+    "meggyízű": "meggy-í-zű",
+    "szőlőskert": "sző-lős-kert",
+    "tűzoltókocsi": "tűz-ol-tó-koc-si",
+    "villámhárító": "vil-lám-há-rí-tó",
+    "autóbuszmegálló": "a-u-tó-busz-meg-ál-ló",
+    "vasútikocsi": "vas-ú-ti-ko-csi",
+    "helyesírásellenőrző": "he-lyes-í-rás-el-len-őr-ző",
+    "meggylé": "meggy-lé",
+    "meggymag": "meggy-mag",
+    "meggybefőtt": "meggy-be-főtt",
+    "megold": "meg-old",
+    "megoldó": "meg-ol-dó",
+    "megoldóképlet": "meg-ol-dó-kép-let",
+    "elválasztás": "el-vá-lasz-tás"
 }
 
 total_errors = 0
 
 for word, expected_output in dictionary.items():
-    output = elvalasztas(word)
+    output = hyphenate(word)
     if output != expected_output:
         print(f"Error in word '{word}': expected '{expected_output}', got '{output}'")
         total_errors += 1

@@ -1,6 +1,6 @@
 # Provided dataset
-import feladat
-
+import hyphenation
+from backend.app.py.syllable_separator_hu.hyphenation import hyphenate
 
 words = [
     "egylet", "egység", "egymás", "egyszeregy", "egyablakos", "egyágú", "egyágyas",
@@ -44,4 +44,4 @@ print("\nWords classified as incorrect:")
 print(", ".join(classified_words["incorrect"]))
 
 for word in words:
-    print(feladat.elvalasztas(word))
+    print(hyphenate(word))

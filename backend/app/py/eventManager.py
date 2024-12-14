@@ -1,4 +1,4 @@
-from syllable_separator_hu import  feladat
+from syllable_separator_hu import  hyphenation
 
 
 class eventManager:
@@ -25,7 +25,7 @@ class eventManager:
 
     def separatorMode(self):
         word = input("Kerem adja meg az elvalasztando szot!")
-        feladat.elvalasztas(word)
+        hyphenation.hyphenate(word)
 
     @staticmethod
     def onExit():
