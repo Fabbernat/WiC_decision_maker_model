@@ -6,7 +6,11 @@ link az adatbázishoz: https://pilehvar.github.io/wic/
 
 link a gemma2-2b-it-t modellhez, méret per minőség arányban egész jó: https://huggingface.co/google/gemma-2-2b-it
 Ugyanitt vannak kvantált, azaz a pontosság rovására kisebb méretűvé tett variánsai is ennek a modellnek: https://huggingface.co/models?other=base_model:quantized:google/gemma-2-2b-it
+<<<<<<< HEAD
 Olvass majd utána a kvantálásnak is: https://huggingface.co/docs/optimum/en/concept_guides/quantization illetve https://huggingface.co/docs/hub/en/gguf
+=======
+Tudj meg többet a kvantálásról az alábbi linken: https://huggingface.co/docs/optimum/en/concept_guides/quantization illetve https://huggingface.co/docs/hub/en/gguf
+>>>>>>> origin/dev
 
 A cél, hogy az alkalmazásban a modelleknek alábbi formájú kérdéseket lehessen feltenni:
 A és B mondatban ugyanazt jelenti-e az X szó?
@@ -38,4 +42,8 @@ Possible platforms to do this:
 
 
 ## TODO: 
+<<<<<<< HEAD
 - Check Large Language Model (LLM) API Playground by Retool
+=======
+- Check Large Language Model (LLM) API Playground by Retool
+>>>>>>> origin/dev
