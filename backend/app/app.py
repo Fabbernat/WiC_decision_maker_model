@@ -1,16 +1,17 @@
 import os
-import curses
 import sys
 import threading
+from random import choice
+
+from backend.app.py import build_templates
+from backend.app.py.controllers.MenuController import MenuController
+
 
 def run_flask():
     app.run(host="127.0.0.1", port=5000, debug=True)
 
 from flask import Flask, render_template
-from curses import wrapper
 
-from backend.app.py.my_curses_init import my_curses_init
-from py import build_templates, my_curses_init
 
 # import nlp_utils
 
@@ -24,8 +25,8 @@ def index():
 
 def my_curses_app(file_content):
 
-    stdscr = curses.initscr()
-    curses.curs_set(0)  # Rejtse el a kurzort
+    stdscr = initscr()
+    curs_set(0)  # Rejtse el a kurzort
     stdscr.clear()
     my_curses_init.my_curses_init(templates, reversed_templates)
     # Fájl tartalmának megjelenítése a konzolon
@@ -47,9 +48,15 @@ def my_curses_app(file_content):
     stdscr.clear()
     stdscr.addstr(0, 0, "Exiting...")
     stdscr.refresh()
-    curses.napms(1000)
+    napms(1000)
 
 def main():
+    print("Welcome to my app!")
+    mc = MenuController()
+    mc.display_menu()
+
+    choice = sys.stdin.readline()
+
     # Az adatfájl betöltése
     templates = build_templates.template_builder(10)
 
@@ -73,11 +80,6 @@ def main():
     # screen handling
     if len(sys.argv) > 0:
         file_path = sys.argv[0]
-
-        # Fájl tartalmának beolvasása
-        file_content = my_curses_init.read_file(file_path)
-        curses.wrapper(my_curses_app, file_content)
-
     run_flask()
 
 if __name__ == '__main__':
