@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import data
-import pandas as pd
-from flask import Flask, render_template
-from py import build_templates
-=======
 import os
 import sys
 import threading
@@ -19,7 +13,6 @@ def run_flask():
 from flask import Flask, render_template
 
 
->>>>>>> origin/dev
 # import nlp_utils
 
 app = Flask(__name__)
@@ -30,28 +23,6 @@ def index():
     return render_template('index.html')
 
 
-<<<<<<< HEAD
-
-
-
-def count_word_occurrences(sentences, word):
-    count = 0
-    for sentence in sentences:
-        count += sentence.split().count(word)
-    return count
-
-
-if __name__ == '__main__':
-
-    # Az adatfájl betöltése
-    templates = build_templates.template_builder
-    for element in templates:
-        print(element)
-    # print(chat_template("bed", "There's a lot of trash on the bed of the river",
-    #                     "I keep a glass of water next to my bed when I sleep"))
-    app.run(host="127.0.0.1", port=5000, debug=True)
-
-=======
 def my_curses_app(file_content):
 
     stdscr = initscr()
@@ -118,7 +89,6 @@ if __name__ == '__main__':
 
     # Continue with curses UI or other tasks here
     main()
->>>>>>> origin/dev
 
 def py():
     return None
