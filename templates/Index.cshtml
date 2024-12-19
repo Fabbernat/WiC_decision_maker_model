@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Welcome to Hyphenat, the Hyphenation App!</h1>
+
+    <p>Az alkalmazás megvizsgálja, hogy a WiC (word in context) feladatot különböző nyelvi modellek mennyire jól tudják megoldani, illetve, hogy mennyire érzékenyek esetlegesen arra, hogyha a 2 példamondatot, amire vonatkozóan döntést kell hozzanak, azt fordított sorrendben adjuk be nekik. Megvizsgált modellek többek között gemma2-2b, Gemini, Llama, GPT. Ezen kívül magyar szavak elválasztására is alkalmas.</p>
+
+    <h2>What can you do?</h2>
+
+    <ul>
+        <li>
+            <b>Manage Categories:</b>
+            <ul>
+                <li>
+                    <a asp-controller="Categories" asp-action="Create">Create new categories</a> (e.g., dog, cat, bird) with a name and description.
+                </li>
+                <li>
+                    <a asp-controller="Categories" asp-action="Index">Edit existing categories</a>.
+                </li>
+                <li>
+                    <a asp-controller="Categories" asp-action="Index">Delete categories</a> that are no longer needed.
+                </li>
+                <li>
+                    <a asp-controller="Categories" asp-action="Index">View a list of pets</a> belonging to each category.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Manage Pets:</b>
+            <ul>
+                <li>
+                    <a asp-controller="Pets" asp-action="Create">Register new pets</a> with their name, gender, age, weight, and category.
+                </li>
+                <li>
+                    <a asp-controller="Pets" asp-action="Create">Upload a photo of your pet</a>.
+                </li>
+                <li>
+                    <a asp-controller="Pets" asp-action="Index">Edit pet information</a> if needed.
+                </li>
+                <li>
+                    <a asp-controller="Pets" asp-action="Index">Delete pets</a> from the registry.
+                </li>
+                <li>
+                    <a asp-controller="Pets" asp-action="Index">View detailed information</a> about each pet, including their photo.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Manage Owners:</b>
+            <ul>
+                <li>
+                    <a asp-controller="Owners" asp-action="Create">Register new pet owners</a> with their name, phone number, living environment.
+                </li>
+                <li>
+                    <a asp-controller="Owners" asp-action="Create">Keep track of their experience as a pet owner</a>.
+                </li>
+                <li>
+                    <a asp-controller="Owners" asp-action="Index">Edit owners' information</a>.
+                </li>
+                <li>
+                    <a asp-controller="Owners" asp-action="Index">Change pet's owners</a>.
+                </li>
+                <li>
+                    <a asp-controller="Pets" asp-action="Index">Delete owners</a> from the registry.
+                </li>
+                <li>
+                    <a asp-controller="Pets" asp-action="Index">View detailed information</a> about each owner.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Features:</h2>
+
+    <ul>
+        <li><b>User-friendly interface:</b> The application is easy to use and navigate.</li>
+        <li><b>Database:</b> Pet data is stored securely in an SQLite database.</li>
+        <li><b>Validation:</b> The application checks your input to prevent errors.</li>
+        <li><b>Custom design:</b> The application has a unique appearance thanks to custom CSS styles.</li>
+    </ul>
+
+    <p>Start registering your pets today!</p>
+    <br />
+    <p>
+        <a asp-controller="Categories" asp-action="Index" class="btn btn-primary">Manage Categories</a>
+        <a asp-controller="Pets" asp-action="Index" class="btn btn-success">Manage Pets</a>
+    </p>
+</div>

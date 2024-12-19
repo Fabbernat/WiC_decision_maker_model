@@ -1,0 +1,251 @@
+@import url(https://db.onlinewebfonts.com/c/3567d4a22b8d7e0d857a16df0afbaa1d?family=Curlz+MT);
+/* 1.1. feladat: oldal alapjai */
+/* Reset CSS */
+html, body, h1, h2, p, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    /* Set the background color, font, etc. */
+    background-color: rgb(36, 36, 36);
+    color: rgb(231, 231, 231);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: "Curlz MT", serif;
+    color: rgb(241, 164, 50);
+    /*text-shadow: 2px 2px 2px #000;*/
+    text-align: center; /* Center the text content within each element */
+    /*transform: skewX(-10deg);*/
+    /*margin: 0 auto; /* Horizontally center the elements */
+    /*display: block; /* Ensure they take up the full width */
+    font-size: 40px;
+}
+
+/* 1.2. feladat: teremtmények */
+/* Style the creature cards */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /*max-divs-in-a-row: 2;*/
+}
+
+
+.creature {
+    margin: 5px;
+    border: 2px solid rgb(192, 185, 157);
+    border-radius: 15px;
+    flex: 1 0 calc(45% - 20px); /* Two items per row */
+    max-height: 340px;
+    overflow: hidden;
+
+}
+
+.creature h2 {
+    font-family: serif;
+    color: rgb(255, 216, 143);
+    font-size: 24px;
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+
+.creature-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.creature-content img {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px;
+    border: thin solid rgb(205, 168, 113);
+    max-width: 270px; /* Set the maximum width to 100% of its container */
+    max-height: 270px; /* Set the maximum width to 100% of its container */
+
+}
+
+/* Add animation for creature pictures */
+.creature img:hover {
+    transform: scale(1.025);
+}
+
+.creature-data {
+    flex: 1;
+}
+
+.creature-description {
+    text-align: justify;
+    font-family: Georgia, sans-serif;
+    margin-bottom: 0;
+}
+
+.ability-title {
+    font-style: italic;
+    letter-spacing: .2rem;
+    font-family: garamond, serif;
+    margin-bottom: 5px;
+}
+
+.creature-abilities {
+    margin-top: 0;
+    padding: 10px;
+    background-color: rgb(30, 30, 32);
+    border-radius: 10px;
+    max-width: 450px;
+}
+
+
+.ability-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.ability-bar {
+    height: 100%;
+}
+
+.bar {
+    height: 100%;
+}
+
+.bar--high {
+    animation: loadHighBar 1s ease-out forwards; /* Apply the animation */
+}
+
+.bar--medium {
+    animation: loadMediumBar 1s ease-out forwards; /* Apply the animation */
+}
+
+.bar--low {
+    animation: loadLowBar 1s ease-out forwards; /* Apply the animation */
+}
+
+
+.bar--danger {
+    background-color: rgb(220, 27, 28);
+}
+
+.bar--intelligence {
+    background-color: rgb(0, 204, 153);
+}
+
+.bar--frequency {
+    background-color: rgb(165, 20, 245);
+}
+
+/* 1.3. feladat: túra vásárlása */
+#buy-ticket {
+    margin-top: 20px; /* Add some space above the section */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
+
+/* Style the túra vásárlása section */
+#buy-ticket .buy {
+    width: 280px;
+    height: 36px;
+    background-color: #FFD85F;
+    color: black;
+    font-size: 18px;
+    border: none;
+    text-transform: uppercase;
+    display: block; /* Ensure they take up the full width */
+    text-align: center; /* Center the text content within each element */
+    margin: 22px auto 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Change button background color on hover */
+#buy-ticket .buy:active {
+    background-color: #FFFFE0; /* Slightly whiter color */
+}
+
+#buy-ticket .buy:hover {
+    transform: translateY(-5px); /* Move button up by 5 pixels */
+}
+
+.price {
+    justify-content: center;
+    vertical-align: center;
+    font-family: unset;
+    text-align: center; /* Center the text content within each element */
+    color: rgb(250, 245, 207);
+    margin-bottom: 20px;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.price:before {
+    content: "$ ";
+}
+
+
+/* 1.4. feladat: animációk */
+@keyframes example {
+    /* Define the animations */
+
+}
+
+/* 1.5. feladat: reszponzivitás */
+@media screen and (max-width: 638px) { /*637 a minta_mobile szélessége*/
+    .container {
+        flex-direction: column;
+        margin: 0;
+        display: block;
+    }
+
+    .creature {
+        flex: 1 0 auto; /* Allow the .creature elements to shrink if necessary */
+        margin: 0 0 20px;
+    }
+
+    .creature-description {
+        line-height: 1.1;
+        margin-bottom: 0;
+    }
+}
+
+@keyframes loadHighBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 90%; /* End with the desired width */
+    }
+}
+
+@keyframes loadMediumBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 60%; /* End with the desired width */
+    }
+}
+
+@keyframes loadLowBar {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 30%; /* End with the desired width */
+    }
+}

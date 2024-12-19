@@ -4,7 +4,7 @@
 
 class Hyphenation:
     def __init__(self):
-        self.dictionary = {
+        self.TheDict = {
             "asztal": "asz-tal",
             "katona": "ka-to-na",
             "rendőr": "rend-őr",
@@ -159,8 +159,8 @@ class Hyphenation:
         return self.hyphenate(word)
 
     def hyphenate(self, word):
-        if word in self.dictionary.keys():
-            return self.dictionary[word]
+        if word in self.TheDict.keys():
+            return self.TheDict[word]
 
         ### strings
         simple_vowels = "aeiou"
@@ -309,14 +309,15 @@ class Hyphenation:
         retstr = ''
         total_errors = 0
 
-        for word, expected_output in self.dictionary.items():
+        for word, expected_output in self.TheDict.items():
             output = self.hyphenate(word)
             if output != expected_output:
-                retstr += f"Error in word '{word}': expected '{expected_output}', got '{output}'" + '\n'
+                retstr += f"Error in '{word}': expected '{expected_output}', got '{output}'\n"
                 total_errors += 1
             else:
-                retstr += f"Helyes: {output}" + '\n'
-                pass
+                retstr += f"Correct: {output}\n"
 
-        retstr += f"Total errors: {total_errors}" + '\n'
-        retstr += f"Length of dictionary: {len(self.dictionary)}" + '\n'
+        retstr += f"\nTotal errors: {total_errors}\n"
+        retstr += f"Number of pages in The Dictionary: {len(self.TheDict)}\n"
+
+        return retstr

@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #ececec;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    margin: 20px;
+}
+
+h1 {
+    color: #982ae7;
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #8d23c6;
+    font-style: italic;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+img {
+    transition: transform 0.3s ease-in-out;
+    border: thick solid #b84af7;
+
+}
+
+img:hover {
+    transform: scale(1.025);
+}
+
+.description {
+    text-align: justify;
+}
+
+#university-img {
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #e080f8;
+    border-radius: 10px;
+}
+
+#course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#course-table th {
+    background-color: #9965b8;
+    padding: 10px 20px;
+    color: white;
+}
+
+#course-table td {
+    background-color: #847f8d;
+    padding: 10px 20px;
+    color: #f1f1f1;
+}
+
+#course-table th, #course-table td {
+    border: 1px solid #000000;
+    font-size: large;
+}
+
+#course-table img {
+    width: 220px;
+    border-radius: 110px;
+}
+
+.prof-name {
+    font-weight: bold;
+    font-size: x-large;
+    margin: 10px;
+}
+
+.prof-description {
+    font-style: italic;
+    font-size: medium;
+}
+
+.quote {
+    background-color: rgb(229, 216, 238);
+    padding: 10px;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+.quote-name {
+    text-align: right;
+    font-weight: bold;
+}
+
+#exam-form {
+    border: 1px solid #8f29e9;
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#exam-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#exam-form input {
+    width: calc(100% - 10px);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#exam-form select {
+    width: calc(100% + 4px);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#exam-form textarea {
+    width: calc(100% - 8px);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    width: 250px;
+    height: 40px;
+    background-color: #b66edd;
+    color: white;
+    display: block;
+    margin: 10px auto 0 auto;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #9d56b1;
+    transform: translateY(-5px); /* Move button up by 5 pixels */
+}
+
+
+/* Change button background color on hover */
+input[type="submit"]:active {
+    background-color: #9dFFE0; /* Lighter color */
+}
+
+
+#move-to-top {
+    display: block;
+    text-decoration: none;
+    font-size: xx-large;
+    color: #b66edd;
+    padding: 10px;
+    border: 2px solid #9d56b1;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin-left: auto;
+}
+
+
+@media screen and (max-width: 638px) { /*637 a minta_mobile szélessége*/
+    div {
+        flex-direction: column;
+        margin: 0;
+        display: block;
+    }
+
+    img {
+        flex: 1 0 auto; /* Allow img to shrink */
+        margin: 0 0 20px;
+    }
+
+    p {
+        line-height: 1.1;
+        margin-bottom: 0;
+    }
+}

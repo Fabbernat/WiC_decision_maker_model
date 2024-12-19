@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hyphenation App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-    <h1>Welcome to the Hyphenation App</h1>
-    <p>This app shows words and their hyphenated forms.</p>
-    <a href="/hyphenate">View Hyphenations</a>
+<div class="container">
+    <h1>Hyphenation App</h1>
+    <p>Enter a word to see its hyphenated form.</p>
+
+    <form action="{{ url_for('hyphenate') }}" method="POST">
+        <input type="text" name="word" placeholder="Enter a word" required>
+        <button type="submit">Hyphenate</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Result for "{{ word }}":</h2>
+        <ul>
+            {% for elem in result %}
+                <li>{{ elem }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+</div>
+<img src="{{ url_for('static', filename='images/cute_fluffy_lil_dog.jpg') }}" alt="Cute fluffy white little doggo"
+     title="Cute fluffy white little doggo">
+<img src="{{ url_for('static', filename='images/brown_dog.jpg') }}" alt="A brown dog" title="A brown dog">
+<img src="{{ url_for('static', filename='images/cat.jpg') }}" alt="Stock photo of a cat"
+     title="Stock photo">
+<img src="{{ url_for('static', filename='images/light_golden_dog.jpg' ) }}" alt="light_golden_dog.jpg"
+     title="light_golden_dog.jpg">
+<img src="{{ url_for('static', filename='images/suni.jpg' ) }}" alt="Sundiszno" title="Sundiszno">
+<img src="{{ url_for('static', filename='images/turtle.jpg') }}" alt="Turtle" title="Turtle">
+<script src="{{ url_for('static', filename='js/site.js') }}"></script>
+
+<script src="{{ url_for('static', filename='lib/jquery/dist/jquery.js') }}"></script>
+
 </body>
 </html>
