@@ -1,4 +1,4 @@
-Scroll down for English description!
+### Scroll down for English description!
 ## WiC_decision_maker_model konzolos alkalmazás
 Ennek a konzolos alkalmazásnak a feladata, hogy megvizsgálja, hogy a WiC (word in context) feladatot különböző nyelvi modellek mennyire jól tudják megoldani, illetve, hogy mennyire érzékenyek esetlegesen arra, hogyha a 2 példamondatot, amire vonatkozóan döntést kell hozzanak, azt fordított sorrendben adjuk be nekik. Megvizsgált modellek terv szerint gemma2-2b és ennek pár-- a pontosság rovására kisebb méretűvé tett --variánsa, GPT 3.5 és 4, Gemini, és még amire idő jut.
 
