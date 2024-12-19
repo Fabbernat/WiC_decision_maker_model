@@ -1,7 +1,8 @@
 ### Scroll down for English description!
 
-# WiC_decision_maker_model konzolos alkalmazás
-Ennek a konzolos alkalmazásnak a feladata, hogy megvizsgálja, hogy a WiC (word in context) feladatot különböző nyelvi modellek mennyire jól tudják megoldani, illetve, hogy mennyire érzékenyek esetlegesen arra, hogyha a 2 példamondatot, amire vonatkozóan döntést kell hozzanak, azt fordított sorrendben adjuk be nekik. 
+# WiC_decision_maker_model konzolos és webalkalmazás
+Ennek a konzolos alkalmazásnak a feladata, hogy megvizsgálja, hogy a WiC (word in context) feladatot különböző nyelvi modellek mennyire jól tudják megoldani, illetve, hogy mennyire érzékenyek esetlegesen arra, hogyha a 2 példamondatot, amire vonatkozóan döntést kell hozzanak, azt fordított sorrendben adjuk be nekik. Az alkalmazás tartalmaz egy szkriptet is, amely képes a legtöbb magyar szót helyesen elválasztani. A modul kifejezetten a magyar elválasztási szabályok figyelembevételével készült.
+
 ## Megvizsgált modellek terv szerint:
 * gemma2-2b és ennek pár-- a pontosság rovására kisebb méretűvé tett --variánsa.
 * GPT-Neo: A GPT-3 egy nyílt forráskódú változata.
@@ -30,11 +31,15 @@ A és B mondatban ugyanazt jelenti-e az X szó?
 
 ## LLM-k benchmarkjainak összehasonlítása:
 ### https://llmarena.ai/
+
+## TESZTELÉS:
+- Check Large Language Model (LLM) API Playground by Retool
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # English version:
 
-# WiC_decision_maker_model console app
-The task of this console application is to examine how well different language models can solve the WiC (word in context) task, and how sensitive they might be to the fact that the 2 example sentences for which a decision has to be made are given in reverse order in for them. 
+# WiC_decision_maker_model console and web app
+The task of this console application is to examine how well different language models can solve the WiC (word in context) task, and how sensitive they might be to the fact that the 2 example sentences for which a decision has to be made are given in reverse order in for them. The app also has a script that can hyphenate most Hungarian words correctly. The module is specifically designed for Hungarian hyphenation rules.
+
 ## According to the plan, tested models will be:
 *  gemma2-2b and its variants - reduced in size at the expense of accuracy, GPT 3.5 and 4, Gemini,
 * GPT-Neo
@@ -59,6 +64,8 @@ Possible platforms to do this:
 ### https://github.com/huggingface/transformers/
 ### https://github.com/ggerganov/llama.cpp
 
+## Compare benchmarks of LLM's:
+### https://llmarena.ai/
 
-## TODO: 
+## TESTING:
 - Check Large Language Model (LLM) API Playground by Retool
