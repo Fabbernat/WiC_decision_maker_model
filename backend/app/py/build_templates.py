@@ -24,7 +24,7 @@ def read_dataset():
 
 
 def chat_template(word, s1, s2):
-    return (f'Does the word "{word}" mean the same in sentence "{s1}" as in sentence"'
+    return (f'Does the word "{word}" mean the same in sentence "{s1}" as in sentence "'
 <<<<<<< HEAD
             f'{s2}"?')
 
