@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyphenation App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
-<div class="container">
+{% extends 'base.html' %}
+
+{% block title %}Hyphenation App{% endblock %}
+
+{% block content %}
     <h1>Hyphenation App</h1>
     <p>Enter a word to see its hyphenated form.</p>
 
@@ -27,16 +21,16 @@
         </ul>
     </div>
 {% endif %}
-</div>
-<img src="{{ url_for('static', filename='images/cute_fluffy_lil_dog.jpg') }}" alt="Cute fluffy white little doggo"
+{% endblock %}
+<img src="{{ url_for('static', filename='../images/cute_fluffy_lil_dog.jpg') }}" alt="Cute fluffy white little doggo"
      title="Cute fluffy white little doggo">
-<img src="{{ url_for('static', filename='images/brown_dog.jpg') }}" alt="A brown dog" title="A brown dog">
-<img src="{{ url_for('static', filename='images/cat.jpg') }}" alt="Stock photo of a cat"
+<img src="{{ url_for('static', filename='../images/brown_dog.jpg') }}" alt="A brown dog" title="A brown dog">
+<img src="{{ url_for('static', filename='../images/cat.jpg') }}" alt="Stock photo of a cat"
      title="Stock photo">
-<img src="{{ url_for('static', filename='images/light_golden_dog.jpg' ) }}" alt="light_golden_dog.jpg"
+<img src="{{ url_for('static', filename='../images/light_golden_dog.jpg' ) }}" alt="light_golden_dog.jpg"
      title="light_golden_dog.jpg">
-<img src="{{ url_for('static', filename='images/suni.jpg' ) }}" alt="Sundiszno" title="Sundiszno">
-<img src="{{ url_for('static', filename='images/turtle.jpg') }}" alt="Turtle" title="Turtle">
+<img src="{{ url_for('static', filename='../images/suni.jpg' ) }}" alt="Sundiszno" title="Sundiszno">
+<img src="{{ url_for('static', filename='../images/turtle.jpg') }}" alt="Turtle" title="Turtle">
 <script src="{{ url_for('static', filename='js/site.js') }}"></script>
 
 <script src="{{ url_for('static', filename='lib/jquery/dist/jquery.js') }}"></script>

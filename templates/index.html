@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Fabbernat Generative AI App{% endblock %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +15,33 @@
 <body>
 <h1>Fabbernat Generative AI</h1>
 <p>What would you like to do</p>
+<div class="links">
+
 <a href="wic/wic.html">Tell the meaning of a word in a sentence. (based on context).</a>
 <a href="hyphenate/hyphenate.html">Hyphenate a word.</a>
-</body>
+</div>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="../static/css/imaginary-magic-animals.css">
+<style>
+    .links {
+        background-color: lightblue;
+        color: yellow;
+        border-radius: 10px;
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    .links a {
+        display: block;
+        margin: 5px 0;
+        text-decoration: none;
+        color: darkblue;
+    }
+
+    .links a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

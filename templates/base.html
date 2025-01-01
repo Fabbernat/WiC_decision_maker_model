@@ -1,0 +1,22 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Fabbernat Generative AI App{% endblock %}</title>
+     <link rel="stylesheet" href="../static/css/imaginary-magic-animals.css">
+    <link rel="stylesheet" href="../static/css/magical-purple.css">
+    <link rel="stylesheet" href="../static/css/site.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/site.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/jquery/dist/jquery.js') }}"></script>
+</body>
+</html>

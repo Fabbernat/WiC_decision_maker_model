@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Polytopia</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/imaginary-magic-animals.css">
+    <link rel="stylesheet" href="../static/css/magical-purple.css">
+    <link rel="stylesheet" href="../static/css/site.css">
+
+
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='images/polytopia-background.jpg') }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Fabbernat Generative AI App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                            asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                            asp-action="Settings">Settings</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                            asp-action="HallOfFame">Hall of Fame</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                            asp-action="ThroneRoom">Throne Room</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                            asp-action="About">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3 main-background">
+        <!--The background image should ONLY be applied to this part of the page-->
+
+        {% block content %}
+            {% extends 'base.html' %}
+
+            {% block title %}Fabbernat Generative AI App{% endblock %}
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Fabbernat Generative AI</title>
+            </head>
+            <body>
+            <h1>Fabbernat Generative AI</h1>
+            <p>What would you like to do</p>
+            <a href="wic/wic.html">Tell the meaning of a word in a sentence. (based on context).</a>
+            <a href="hyphenate/hyphenate.html">Hyphenate a word.</a>
+            </body>
+        {% endblock %}
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2024 - Polytopia - <a asp-area="" asp-controller="Home" asp-action="About">About</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

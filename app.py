@@ -8,7 +8,23 @@ hyphenator = syllable_separator_hu.Hyphenation  # Creates an instance of the Hyp
 
 @app.route('/')
 def index():
-    return render_template('hyphenate/hyphenate.html')
+    return render_template('index.html')
+
+@app.route('/settings')
+def settings():
+    return render_template('settings.html')
+
+@app.route('/hall_of_fame')
+def hall_of_fame():
+    return render_template('hall_of_fame.html')
+
+@app.route('/throne_room')
+def throne_room():
+    return render_template('throne_room.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/privacy')
 def privacy():
