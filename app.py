@@ -8,7 +8,7 @@ hyphenator = syllable_separator_hu.Hyphenation  # Creates an instance of the Hyp
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('hyphenate/hyphenate.html')
 
 @app.route('/privacy')
 def privacy():
@@ -18,7 +18,7 @@ def privacy():
 def hyphenate():
     word = request.form.get('word')
     result = hyphenator.Hyphenation() if word else "Please enter a word."
-    return render_template('index.html', result=result, word=word)
+    return render_template('hyphenate/hyphenate.html', result=result, word=word)
 
 if __name__ == '__main__':
     app.run(debug=True)
