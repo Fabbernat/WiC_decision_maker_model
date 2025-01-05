@@ -28,6 +28,8 @@ A és B mondatban ugyanazt jelenti-e az X szó?
 ### https://github.com/huggingface/transformers/
 ### https://github.com/ggerganov/llama.cpp
 
+## Magyar nyelvű magyarázó videó hozzá:
+https://www.inf.u-szeged.hu/~rfarkas/NLP/ - 5. hét - Jelentésegyértelműsítés 
 
 ## LLM-k benchmarkjainak összehasonlítása:
 ### https://llmarena.ai/
@@ -63,6 +65,9 @@ Possible platforms to do this:
 ### https://github.com/vllm-project/vllm
 ### https://github.com/huggingface/transformers/
 ### https://github.com/ggerganov/llama.cpp
+
+## Hungarian explanatory video:
+https://www.inf.u-szeged.hu/~rfarkas/NLP/ – Week 5 – Word Sense Disambiguation
 
 ## Compare benchmarks of LLM's:
 ### https://llmarena.ai/
