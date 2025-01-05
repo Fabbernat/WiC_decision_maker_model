@@ -10,6 +10,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/WiC_decision_maker_model-main/frontend/templates" />
+        <option value="$MODULE_DIR$/flask/templates" />
       </list>
     </option>
   </component>
