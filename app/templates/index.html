@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
-    <link rel="icon" href="{{ url_for('static', filename='img/chat_icon.jpg') }}">
+    <link rel="icon" href="../static/images/chat-icon.jpg">
     <title>Flask Chatbot Application</title>
     <style>
 
@@ -109,9 +108,25 @@
         }
 
     </style>
+    <script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+    }
+</script>
 </head>
 <body>
+{% extends "base.html" %}
+
+{% block content %}
 <header>Flask Chatbot Application</header>
+
+<h1>Word in Context decision maker model</h1><p>The server is running at 127.0.0.1:5000</p>
+<p>This is the Index page. Explore other sections using the navigation above.</p>
+{% endblock %}
+@{
+	ViewData["Title"] = "Home Page";
+}
 <main id="chat-list">
     <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
     <div class="chat-list-container">
@@ -132,7 +147,7 @@
             <button type="submit" name="submit" id="submit">Send
             </button>
             </label>
-                <img src="../static/images/chat_icon.jpg" alt="Send" height="64px">
+                <img src="../static/images/chat-icon.jpg" alt="Send" height="64px">
         </form>
     </div>
 </main>
@@ -150,13 +165,18 @@
         <p>&copy; 2024 TryHard33. All rights reserved.</p>
     </section>
 </footer>
+<div class="text-center">
+	<form action="/chat" method="post">
+		<label for="my-chats" class="toggle">
+			<input type="submit" name="my-chats" id="my-chats" value="My chats" />
+			<span class="toggle-btn">
 
-<script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('collapsed');
-    }
-</script>
+			</span>
+
+		</label>
+	</form>
+
+</div>
 
 </body>
 </html>
