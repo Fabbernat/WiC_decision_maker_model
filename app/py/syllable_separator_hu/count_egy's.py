@@ -1,6 +1,6 @@
 # Provided dataset
 import hyphenation
-from backend.app.py.syllable_separator_hu.hyphenation import hyphenate
+from app.py.syllable_separator_hu.hyphenation import hyphenate
 
 words = [
     "egylet", "egység", "egymás", "egyszeregy", "egyablakos", "egyágú", "egyágyas",
