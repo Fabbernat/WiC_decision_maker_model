@@ -1,7 +1,8 @@
 # Windows HP templates route: C:\Users\HP\PycharmProjects\polytopia_python\app\templates
 # Windows truncated templates route: C:\PycharmProjects\polytopia_python\app\templates
 # relative templates route: polytopia_python\app\templates
-from flask import Flask, render_template
+from flask import Flask, request, jsonify, render_template
+from transformers import pipeline
 
 # Create a Flask app
 app = Flask(__name__)
@@ -12,7 +13,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return (
-        """
+        '''
             <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +66,7 @@ def home():
 </style>
 </body>
 </html>
-    """
+    '''
             )
 
 @app.route("/chat")
@@ -76,7 +77,7 @@ def chat():
 @app.route("/privacy")
 def privacy():
     return
-"""
+'''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,7 +94,7 @@ def privacy():
 
 </body>
 </html>
-"""
+'''
 
 # Route for the Dashboard page
 # TODO Fix error Template file 'dashboard. html' not found
@@ -112,6 +113,27 @@ def settings():
     return render_template("settings.html")
 
 
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        data = request.json
+        sentence_a = data.get("sentence_a", "")
+        sentence_b = data.get("sentence_b", "")
+        target_word = data.get("target_word", "")
+
+        if not sentence_a or not sentence_b or not target_word:
+            return jsonify({"error": "Hiányzó bemenet"}), 400
+
+        # Formázzuk a bemenetet
+        input_text = f"A: {sentence_a} B: {sentence_b} X: {target_word}"
+        result = classifier(input_text)
+
+        # Egyszerűsített válasz
+        prediction = "YES" if result[0]['label'] == 'LABEL_1' else "NO"
+
+        return jsonify({"prediction": prediction})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
