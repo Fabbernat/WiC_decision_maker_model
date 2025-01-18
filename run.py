@@ -18,52 +18,158 @@ def home():
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #6200ea;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .header .icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header .icons img {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 50px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .chats-dashboard {
+            flex: 1;
+            overflow-y: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .chat-message {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .chat-message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-message .message-text {
+            background-color: #e0e0e0;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 70%;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-section input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-section button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .input-section button:hover {
+            background-color: #4500b5;
+        }
+    </style>
 </head>
 <body>
-{% extends "base.html" %}
+    <div class="header">
+        <div class="title">Chats</div>
+        <div class="icons">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Icon" title="User">
+            <img src="https://cdn-icons-png.flaticon.com/512/929/929610.png" alt="Share Icon" title="Share">
+        </div>
+    </div>
 
-{% block content %}
-<h1>Word in Context decision maker model</h1><p>The server is running at 127.0.0.1:5000</p>"
-<p>This is the Index page. Explore other sections using the navigation above.</p>
-{% endblock %}
-@{
-	ViewData["Title"] = "Home Page";
-}
+    <div class="chat-container">
+        <div class="chats-dashboard" id="chatsDashboard">
+            <!-- Messages will appear here -->
+        </div>
 
-<div class="text-center">
-	<form action="/chat" method="post">
-		<label for="my-chats" class="toggle">
-			<input type="submit" name="my-chats" value="My chats" />
-			<span class="toggle-btn">
+        <div class="input-section">
+            <input type="text" id="messageInput" placeholder="Type your message here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
-			</span>
+    <script>
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const chatsDashboard = document.getElementById('chatsDashboard');
 
-		</label>
-	</form>
+            // Get the user's message
+            const messageText = messageInput.value.trim();
 
-</div>
-<style>
-	.toggle .toggle-btn {
-		display: inline-block;
-		width: 60px;
-		text-align: center;
-		padding: 5px 0;
-		font-size: 14px;
-		font-weight: bold;
-		color: white;
-		background-color: lightblue;
-		border-radius: 5px;
-		user-select: none;
-		transition: all 0.3s ease;
-	}
+            // Only send if message is not empty
+            if (messageText !== '') {
+                // Create a new chat message
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chat-message');
 
-	.toggle .toggle-btn:hover {
-		background-color: white;
-		color: black;
-		border: 1px solid black;
-	}
-</style>
+                const userIcon = document.createElement('img');
+                userIcon.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
+                userIcon.alt = 'User';
+
+                const messageContent = document.createElement('div');
+                messageContent.classList.add('message-text');
+                messageContent.textContent = messageText;
+
+                messageDiv.appendChild(userIcon);
+                messageDiv.appendChild(messageContent);
+
+                // Append the new message to the dashboard
+                chatsDashboard.appendChild(messageDiv);
+
+                // Scroll to the bottom of the chat dashboard
+                chatsDashboard.scrollTop = chatsDashboard.scrollHeight;
+
+                // Clear the input field
+                messageInput.value = '';
+            }
+        }
+    </script>
 </body>
 </html>
     '''
