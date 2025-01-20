@@ -1,10 +1,12 @@
+# Conosle app
+
 import os
 import sys
 import threading
 from random import choice
 
-from backend.app.py import build_templates
-from backend.app.py.controllers.MenuController import MenuController
+from app.py import build_templates
+from app.py.controllers.MenuController import MenuController
 
 
 def run_flask():

@@ -1,3 +1,4 @@
+# Web app
 # Windows HP templates route: C:\Users\HP\PycharmProjects\polytopia_python\app\templates
 # Windows truncated templates route: C:\PycharmProjects\polytopia_python\app\templates
 # relative templates route: polytopia_python\app\templates
