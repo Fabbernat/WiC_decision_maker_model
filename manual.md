@@ -19,7 +19,7 @@ Does the word "purchase" mean the same in sentence "They offer a free hamburger 
 Does the word "software" mean the same in sentence "Did you test the software package to ensure completeness ?" as in sentence"The market for software is expected to expand ."?
 
 ```
-Ask him a question:
+Ask the model a question:
 `Does the word "defeat" mean the same in sentence "It was a narrow defeat ." as in sentence"The army 's only defeat ."?
 `
 You should see the answer "YES".
@@ -38,7 +38,7 @@ Does the word "solve" mean the same in sentence "Did you solve the problem ?" as
 Does the word "purchase" mean the same in sentence "They closed the purchase with a handshake ." as in sentence"They offer a free hamburger with the purchase of a drink ."?
 Does the word "software" mean the same in sentence "The market for software is expected to expand ." as in sentence"Did you test the software package to ensure completeness ?"?
 ```
-Ask him a reversed question:
+Ask the model a reversed question:
 `
 Does the word "defeat" mean the same in sentence "The army 's only defeat ." as in sentence"It was a narrow defeat ."?
 
