@@ -1,7 +1,7 @@
 function MyButton() {
   return (
     <button>
-      I'm a button
+      Click me
     </button>
   );
 }
@@ -9,7 +9,7 @@ function MyButton() {
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Welcome to WiC Decision Maker Model</h1>
       <MyButton />
     </div>
   );
