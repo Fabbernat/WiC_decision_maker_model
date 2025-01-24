@@ -1,12 +1,12 @@
-# Conosle app
+# PATH: C:\PycharmProjects\WiC_decision_maker_model\app\run.py
+
+from app.py.controllers.MenuController import MenuController
 
 import os
 import sys
 import threading
 from random import choice
 
-from app.py import build_templates
-from app.py.controllers.MenuController import MenuController
 
 
 def run_flask():
@@ -91,6 +91,3 @@ if __name__ == '__main__':
 
     # Continue with curses UI or other tasks here
     main()
-
-def py():
-    return None

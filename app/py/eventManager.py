@@ -20,7 +20,7 @@ class eventManager:
         print("Hello, there!")
 
     def wicMode(self):
-        # app.py.start()
+        # run.py.start()
         pass
 
     def separatorMode(self):
