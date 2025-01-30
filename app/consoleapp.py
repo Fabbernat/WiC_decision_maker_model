@@ -2,41 +2,56 @@
 # Console app
 
 from app.py.controllers.MenuController import MenuController
+from app.py import TemplateBuilder
 
 import sys
 import threading
+import os
+import app.py.Model
+
+
+def tryparse(input_str, type_func=int):
+    try:
+        return type_func(input_str.strip())  # Strip to remove trailing newline/spaces
+    except ValueError:
+        return None
 
 def main():
     print("Welcome to my app!")
-    mc = MenuController()
-    mc.display_menu()
+    while True:
+        mc = MenuController()
+        mc.display_menu()
 
-    choice = sys.stdin.readline()
+        input_str = sys.stdin.readline()
+        choice = tryparse(input_str, int)
 
-    # Az adatfájl betöltése
-    templates = build_templates.template_builder(10)
+        if choice is None:
+            print("Invalid input. Please enter a valid number.")
+        else:
+            print(f"You selected option {choice}.")
+        if choice == 0:
+            exit(0)
+        if choice == 1:
+            print('Enter the question!')
+            question = sys.stdin.readline()
+            Model.wsd(question)
+            # Az adatfájl betöltése
+            tb = TemplateBuilder.TemplateBuilder()
+            templates = tb.build_templates(10)
 
-    # Ensure output directory exists
-    output_dir = 'output'
-    os.makedirs(output_dir, exist_ok=True)
+            # Ensure output directory exists
+            output_dir = 'output'
+            os.makedirs(output_dir, exist_ok=True)
 
-    # Open the file in write mode
-    with open(f'{output_dir}/out.txt', 'w', encoding='utf-8') as f:
-        print('Answer with a single "YES" or "NO"!', file=f)
-        print(templates, file=f, end="")
-    f.close()  # force close the file to speed up the app
+            # Open the file in write mode
+            print('Answer with a single "YES" or "NO"!')
+            print(templates, end="")
 
-    reversed_templates = build_templates.template_builder(10, reverse=True)
-    # Open the file in write mode
-    with open(f'{output_dir}/out_reversed.txt', 'w', encoding='utf-8') as reversed_f:
-        print('Answer with a single "YES" or "NO"!', file=reversed_f)
-        print(reversed_templates, file=reversed_f, end="")
-    reversed_f.close()
+            reversed_templates = tb.build_templates(10, reverse=True)
+            # Open the file in write mode
+            print('Answer with a single "YES" or "NO"!')
+            print(reversed_templates, end="")
 
-    # screen handling
-    if len(sys.argv) > 0:
-        file_path = sys.argv[0]
-    run_flask()
 
 if __name__ == '__main__':
     main()

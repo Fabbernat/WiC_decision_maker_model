@@ -27,4 +27,4 @@ class MenuController:
         for template in self.templates:
             print(template)
 
-        print("\nEnter the number of the desired action (0-5): ")
+        print("\nEnter the number of the desired action (0-14): ")

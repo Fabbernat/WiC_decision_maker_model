@@ -20,9 +20,14 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title='Index Page')
+
+# Route for the homepage
+@app.route("/")
+def home():
+    return render_template('home.html', title='Home Page')
 
 
 def my_curses_app(file_content):
@@ -60,7 +65,7 @@ def main():
     choice = sys.stdin.readline()
 
     # Az adatfájl betöltése
-    templates = build_templates.template_builder(10)
+    templates = build_templates.build_templates(10)
 
     # Ensure output directory exists
     output_dir = 'output'
@@ -72,7 +77,7 @@ def main():
         print(templates, file=f, end="")
     f.close()  # force close the file to speed up the app
 
-    reversed_templates = build_templates.template_builder(10, reverse=True)
+    reversed_templates = build_templates.build_templates(10, reverse=True)
     # Open the file in write mode
     with open(f'{output_dir}/out_reversed.txt', 'w', encoding='utf-8') as reversed_f:
         print('Answer with a single "YES" or "NO"!', file=reversed_f)

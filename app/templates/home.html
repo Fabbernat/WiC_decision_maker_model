@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -99,60 +99,74 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="title">Chats</div>
-        <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Icon" title="User">
-            <img src="https://cdn-icons-png.flaticon.com/512/929/929610.png" alt="Share Icon" title="Share">
-        </div>
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% endblock %}
+<header>Peternity</header>
+
+<h1>Context-based sentence analysis model</h1>
+<p>The server is running at 127.0.0.1:5000</p>
+<p>This is the Home page. Explore other sections using the navigation above.</p>
+@{
+ViewData["Title"] = "Home Page";
+}
+<div class="header">
+    <div class="title">Chats</div>
+    <div class="icons">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Icon" title="User">
+        <img src="https://cdn-icons-png.flaticon.com/512/929/929610.png" alt="Share Icon" title="Share">
+    </div>
+</div>
+
+<div class="chat-container">
+    <div class="chats-list" id="chatsList">
+        <!-- Messages will appear here -->
     </div>
 
-    <div class="chat-container">
-        <div class="chats-list" id="chatsList">
-            <!-- Messages will appear here -->
-        </div>
-
-        <div class="input-section">
-            <input type="text" id="messageInput" placeholder="Type your message here...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+    <div class="input-section">
+        <input type="text" id="messageInput" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
     </div>
+</div>
 
-    <script>
-        function sendMessage() {
-            const messageInput = document.getElementById('messageInput');
-            const ChatsList = document.getElementById('ChatsList');
+<script>
+    function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const ChatsList = document.getElementById('ChatsList');
 
-            // Get the user's message
-            const messageText = messageInput.value.trim();
+        // Get the user's message
+        const messageText = messageInput.value.trim();
 
-            // Only send if message is not empty
-            if (messageText !== '') {
-                // Create a new chat message
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('chat-message');
+        // Only send if message is not empty
+        if (messageText !== '') {
+            // Create a new chat message
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message');
 
-                const userIcon = document.createElement('img');
-                userIcon.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
-                userIcon.alt = 'User';
+            const userIcon = document.createElement('img');
+            userIcon.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
+            userIcon.alt = 'User';
 
-                const messageContent = document.createElement('div');
-                messageContent.classList.add('message-text');
-                messageContent.textContent = messageText;
+            const messageContent = document.createElement('div');
+            messageContent.classList.add('message-text');
+            messageContent.textContent = messageText;
 
-                messageDiv.appendChild(userIcon);
-                messageDiv.appendChild(messageContent);
+            messageDiv.appendChild(userIcon);
+            messageDiv.appendChild(messageContent);
 
-                // Append the new message to the chats list
-                ChatsList.appendChild(messageDiv);
+            // Append the new message to the chats list
+            ChatsList.appendChild(messageDiv);
 
-                // Scroll to the bottom of the chat chats list
-                ChatsList.scrollTop = ChatsList.scrollHeight;
+            // Scroll to the bottom of the chat chats list
+            ChatsList.scrollTop = ChatsList.scrollHeight;
 
-                // Clear the input field
-                messageInput.value = '';
-            }
+            // Clear the input field
+            messageInput.value = '';
         }
-    </script>
+    }
+</script>
 </body>
 </html>
