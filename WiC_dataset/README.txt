@@ -42,3 +42,4 @@ When using this dataset, please refer to the following paper:
 	Mohammad Taher Pilehvar and Jose Camacho-Collados,
 	WiC: the Word-in-Context Dataset for Evaluating Context-Sensitive Meaning Representations,
 	In Proceedings of NAACL 2019 (short), Minneapolis, USA. 
+

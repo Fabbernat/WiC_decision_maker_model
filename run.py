@@ -4,10 +4,11 @@
 # relative templates route: polytopia_python\app\templates
 from flask import Flask, request, jsonify, render_template
 from transformers import pipeline
-from transformers.agents.evaluate_agent import classifier
+
+# from transformers.agents.evaluate_agent import classifier # errort dob
 
 # Create a Flask app
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates")
 
 # add Index page, Privacy, ChatsList, About, Settings routes
 
@@ -73,7 +74,7 @@ def predict():
 
         # Formázzuk a bemenetet
         input_text = f"A: {sentence_a} B: {sentence_b} X: {target_word}"
-        result = classifier(input_text)
+        result = classifier(input_text, labels=None)
 
         # Egyszerűsített válasz
         prediction = "YES" if result[0]['label'] == 'LABEL_1' else "NO"
@@ -84,4 +85,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5000)
+    app.run(debug=True, host="127.0.0.1", port=5001)

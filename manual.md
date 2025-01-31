@@ -3,7 +3,7 @@
 2. Follow the steps of the installer and install Ollama
 3. Open a terminal and type the following commands:
    - `ollama run llama3` - this may take several minutes
-   - You should see a darkgray placeholder hint message: `Send a message (/? for hel
+   - You should see a darkgray placeholder hint message: `Send a message (/? for help
 4. We have this database:
 ```
 Answer with a single "YES" or "NO"!
