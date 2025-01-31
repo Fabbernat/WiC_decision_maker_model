@@ -4,98 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <style>
+     <style>
+
         body {
             font-family: Arial, sans-serif;
+            background-color: #343541;
+            color: #ffffff;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            flex-direction: column;
+            height: 100vh;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #6200ea;
-            color: white;
-            padding: 10px 20px;
-        }
-
-        .header .icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .header .icons img {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
+        header {
+            background-color: #444654;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 1px solid #282b30;
         }
 
         .chat-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 50px);
-            padding: 20px;
-            box-sizing: border-box;
+            justify-content: flex-end;
         }
 
-        .chats-list {
+        .input-container {
+            background-color: #40414f;
+            padding: 10px;
+            display: flex;
+            border-top: 1px solid #282b30;
+        }
+
+        .input-container input[type="text"] {
             flex: 1;
-            overflow-y: auto;
-            background-color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            margin-right: 10px;
+            width: 100%; /*Ensure that the text input is long enough to be visible on all screen sizes*/
+        }
+
+        .input-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #19c37d;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .input-container button:hover {
+            background-color: #13a369;
+        }
+
+        .message {
+            background-color: #444654;
+            padding: 10px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            margin-bottom: 10px;
+            max-width: 60%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: #1a7f65;
+        }
+
+        .chat-list-container {
+         flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .chat-list-container h2 {
+            color: #ffffff;
+            font-size: 22px;
             margin-bottom: 20px;
         }
 
-        .chat-message {
-            display: flex;
-            align-items: center;
+        .chat-list-container a {
+            color: #ffffff;
+            text-decoration: none;
             margin-bottom: 15px;
+            font-size: 18px;
         }
 
-        .chat-message img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
+        .chat-list-container a:hover {
+            color: #19c37d;
         }
 
-        .chat-message .message-text {
-            background-color: #e0e0e0;
-            padding: 10px 15px;
-            border-radius: 10px;
-            max-width: 70%;
-        }
-
-        .input-section {
-            display: flex;
-            gap: 10px;
-        }
-
-        .input-section input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .input-section button {
-            background-color: #6200ea;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .input-section button:hover {
-            background-color: #4500b5;
-        }
     </style>
 </head>
 <body>
@@ -168,5 +178,11 @@ ViewData["Title"] = "Home Page";
         }
     }
 </script>
+<script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
 </body>
 </html>

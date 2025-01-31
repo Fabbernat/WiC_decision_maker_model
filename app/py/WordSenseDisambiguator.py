@@ -1,7 +1,9 @@
+# Word Sense Disambiguation module
+
 import spacy
 import re
 
-class Model:
+class WordSenseDisambiguator:
 
     def get_word_context(self, word, sentence):
         """Returns surrounding words of the target word in a sentence."""
@@ -32,6 +34,8 @@ class Model:
         word, sentence_a, sentence_b = match.groups()
         return self.determine_word_similarity(word, sentence_a, sentence_b)
 
+    def build_sentence(self, word, sentence_a, sentence_b):
+        return f'Does the word "{word}" mean the same thing in sentences "{sentence_a}" and "{sentence_b}"?'
 # Example usage:
 '''
 word = "run"
@@ -54,7 +58,13 @@ questions.append('Does the word "run" mean the same thing in sentences "I went f
 questions.append('Does the word "defeat" mean the same thing in sentences "It was a narrow defeat." and "The army \'s only defeat ."?')
 questions.append('Does the word "bank" mean the same thing in sentences "Bank on your good education." and "The pilot had to bank the aircraft"?')
 
+word = 'penetration'
+sentence_a = 'The penetration of upper management by women'
+sentence_b = 'Any penetration , however slight , is sufficient to complete the offense .'
+
 model = Model()
+built_sentence = model.build_sentence(word, sentence_a, sentence_b)
+questions.append(built_sentence)
 for question in questions:
     print(model.process_question(question))
 

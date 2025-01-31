@@ -7,7 +7,7 @@ from app.py import TemplateBuilder
 import sys
 import threading
 import os
-import app.py.Model
+import app.py.WordSenseDisambiguator
 
 
 def tryparse(input_str, type_func=int):

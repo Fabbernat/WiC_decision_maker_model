@@ -1,4 +1,4 @@
-# PATH: C:\PycharmProjects\WiC_decision_maker_model\app\run.py
+# PATH: C:\PycharmProjects\WiC_decision_maker_model\app\globalrun.py
 
 from app.py.controllers.MenuController import MenuController
 
