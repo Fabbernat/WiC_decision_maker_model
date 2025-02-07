@@ -3,7 +3,7 @@
 # Peternity konzolos és webalkalmazás
 Ennek a konzolos és web alkalmazásnak a feladata, hogy megvizsgálja, hogy a WiC (word in context) feladatot különböző nyelvi modellek mennyire jól tudják megoldani, illetve, hogy mennyire érzékenyek esetlegesen arra, hogyha a 2 példamondatot, amire vonatkozóan döntést kell hozzanak, azt fordított sorrendben adjuk be nekik. Az alkalmazás tartalmaz egy szkriptet is, amely képes a legtöbb magyar szót helyesen elválasztani. A modul kifejezetten a magyar elválasztási szabályok figyelembevételével készült.
 
-## Megvizsgált modellek terv szerint:
+## Megvizsgált algoritmusok és  modellek terv szerint:
 * gemma2-2b és ennek pár-- a pontosság rovására kisebb méretűvé tett --variánsa.
 * GPT-Neo: A GPT-3 egy nyílt forráskódú változata.
 * OPT: A Facebook által fejlesztett nagy nyelvi modell.
